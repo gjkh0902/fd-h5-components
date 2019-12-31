@@ -32,7 +32,7 @@
 import Vue from "vue"
 import { Cell, Button } from "mint-ui"
 import { IndexList } from "fd-h5-components"
-// import { IndexList } from "~/index" //--本地引入方式调试
+//import { IndexList } from "~/index" //--本地引入方式调试
 Vue.use(IndexList)
 import IndexListData from "../../util/test/indexList.json"
 import AppHeader from "../appHeader"

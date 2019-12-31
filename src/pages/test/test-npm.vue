@@ -52,7 +52,7 @@ Vue.use(IndexList)
 Vue.use(TabNav)
 
 //mk-libs
-import { QNUploader } from "mk-libs"
+import { QNUploader, WxSdkFunc } from "mk-libs"
 export default {
 	name: "test-npm",
 	data() {
@@ -82,11 +82,12 @@ export default {
 		},
 		navChange(x) {
 			console.log("索引变化回调", x)
+			console.log("a", a)
 			this.currIndex = x
 		}
 	},
 	mounted() {
-		console.log(QNUploader)
+		console.log(QNUploader, WxSdkFunc)
 	}
 }
 </script>
