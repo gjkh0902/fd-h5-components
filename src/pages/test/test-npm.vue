@@ -48,6 +48,7 @@ import TabNavData from "../../util/test/tabNav.json"
 //fd-h5-components
 import { IndexList, TabNav } from "fd-h5-components"
 //import { IndexList, TabNav } from "~/index" //--本地引入方式调试
+//import { IndexList, TabNav } from "&/index.umd.min.js" //--本地引入方式调试
 Vue.use(IndexList)
 Vue.use(TabNav)
 
@@ -82,12 +83,12 @@ export default {
 		},
 		navChange(x) {
 			console.log("索引变化回调", x)
-			console.log("a", a)
 			this.currIndex = x
 		}
 	},
 	mounted() {
 		console.log(QNUploader, WxSdkFunc)
+		console.log(IndexList)
 	}
 }
 </script>

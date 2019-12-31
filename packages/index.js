@@ -1,10 +1,7 @@
 import IndexList from "./index-list/index"
-//import TabNav from "./tab-nav/index"
+import TabNav from "./tab-nav/index"
 
-const components = [
-	IndexList
-	//TabNav
-]
+const components = [IndexList, TabNav]
 
 const install = function(Vue) {
 	if (install.installed) return
@@ -15,11 +12,7 @@ if (typeof window !== "undefined" && window.Vue) {
 	install(window.Vue)
 }
 
-export {
-	install,
-	IndexList
-	//TabNav
-}
+export { install, IndexList, TabNav }
 
 // export default {
 // 	install,

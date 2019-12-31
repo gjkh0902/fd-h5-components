@@ -1,8 +1,8 @@
-const path = require("path");
-const webpack = require("webpack");
+const path = require("path")
+const webpack = require("webpack")
 
 function resolve(dir) {
-	return path.join(__dirname, dir);
+	return path.join(__dirname, dir)
 }
 
 module.exports = {
@@ -49,7 +49,8 @@ module.exports = {
 			.set("@service", resolve("src/service"))
 			.set("@plugins", resolve("src/plugins"))
 			.set("@mixins", resolve("src/mixins"))
-			.set("~", resolve("packages"));
+			.set("~", resolve("packages"))
+			.set("&", resolve("lib"))
 		// 这里只写了两个个，你可以自己再加，按这种格式.set('', resolve(''))
 		/*config.module
               .rule('images')
@@ -65,7 +66,7 @@ module.exports = {
 		// 启用 CSS modules
 		modules: false,
 		// 是否使用css分离插件
-		extract: process.env.NODE_ENV === "production" ? true : false,
+		extract: process.env.NODE_ENV === "production" ? false : false,
 		// 开启 CSS source maps?
 		sourceMap: false,
 		// css预设器配置项
@@ -74,7 +75,7 @@ module.exports = {
 	// webpack-dev-server 相关配置
 	devServer: {
 		host: "0.0.0.0",
-		port: 8088,
+		port: 8080,
 		https: false,
 		open: true,
 		hotOnly: false,
@@ -85,4 +86,4 @@ module.exports = {
 	pwa: {},
 	// 第三方插件配置
 	pluginOptions: {}
-};
+}
