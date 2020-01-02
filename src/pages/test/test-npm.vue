@@ -58,7 +58,6 @@ import { IndexList, TabNav } from "fd-h5-components";
 Vue.use(IndexList);
 Vue.use(TabNav);
 
-//mk-libs
 export default {
 	name: "test-npm",
 	data() {
