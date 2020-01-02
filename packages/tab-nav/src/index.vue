@@ -185,6 +185,7 @@ export default {
                 justify-content: center;
                 align-items: center;
                 width: 66px;
+                height: 100%;
                 color: #9B9B9B;
                 font-size:16px;
                 font-weight: 400;

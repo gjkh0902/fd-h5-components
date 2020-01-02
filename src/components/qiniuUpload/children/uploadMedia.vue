@@ -113,7 +113,7 @@ export default {
 	mounted() {
 		this.uploader = MkQnUpload({
 			browse_button: "upload", // 上传选择的点选按钮，可以是id或者元素本身，必需
-			domain: "http://test001.pnlyy.com", // bucket域名，下载资源时用到，必需
+			domain: "https://tests001.pnlyy.com", // bucket域名，下载资源时用到，必需
 			fetch_upload_token: this.fetchUploadToken, // 获取上传token方法
 			file_type: "video, audio, mov, avi", // 上传文件类型,默认为图片
 			unique_names: this.uniqueNames, // 是否开启自动文件名
@@ -220,7 +220,7 @@ export default {
 			let fileFullName = file.name
 			this.fileName.unshift({
 				name: info.key,
-				src: `http://test001.pnlyy.com/${info.key}`,
+				src: `https://tests001.pnlyy.com/${info.key}`,
 				type: file.type
 			})
 			console.log(this.fileName)

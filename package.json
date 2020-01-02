@@ -20,7 +20,7 @@
         "build": "vue-cli-service build",
         "lint": "vue-cli-service lint",
         "dll": "webpack -p --progress --config ./webpack.dll.conf.js",
-        "lib": "vue-cli-service build --target lib --name index --dest lib packages/index.js"
+        "lib": "vue-cli-service build --target lib --name index --dest lib packages/index.js --mode lib"
     },
     "dependencies": {
         "axios": "^0.18.0",
@@ -28,7 +28,7 @@
         "fd-h5-components": "^1.2.4",
         "file-loader": "^3.0.1",
         "mint-ui": "~2.2.13",
-        "mk-bridge": "^1.2.6",
+        "mk-bridge": "^1.2.7",
         "mk-libs": "^1.1.7",
         "vue": "^2.6.10",
         "vue-loader": "^15.7.0",

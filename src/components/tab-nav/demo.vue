@@ -3,11 +3,7 @@
 	<div class="demo-container">
 		<app-header></app-header>
 		<div class="item-content">
-			<fd-tab-nav
-				:list="navList"
-				:curr-index="currIndex"
-				:on-change="navChange"
-			>
+			<fd-tab-nav :list="navList" :curr-index="currIndex" :on-change="navChange">
 				<template slot-scope="scope">
 					<!-- <div>索引：{{scope.index}}</div> -->
 					<div>{{ scope.item.name }}</div>
@@ -26,26 +22,28 @@
 </template>
 
 <script>
-import Vue from "vue";
-import { TabNav } from "fd-h5-components";
-//import { TabNav } from "~/index" //--本地引入方式调试
-Vue.use(TabNav);
+import Vue from "vue"
+// import { TabNav } from "fd-h5-components"
+import { TabNav } from "~/index" //--本地引入方式调试
+// import {  TabNav } from "&/index.umd.min.js" //--本地引入方式调试
 
-import TabNavData from "../../util/test/tabNav.json";
-import AppHeader from "../appHeader";
+Vue.use(TabNav)
+
+import TabNavData from "../../util/test/tabNav.json"
+import AppHeader from "../appHeader"
 export default {
 	data() {
 		return {
 			currIndex: 0,
 			navList: [],
 			navList1: TabNavData
-		};
+		}
 	},
 	components: {
 		AppHeader
 	},
 	created() {
-		this.navList = this.navList1;
+		this.navList = this.navList1
 	},
 	mounted() {
 		// window.addEventListener('resize', this.handleScroll)
@@ -53,10 +51,10 @@ export default {
 	},
 	methods: {
 		navChange(x) {
-			console.log("索引变化", x);
-			this.currIndex = x;
+			console.log("索引变化", x)
+			this.currIndex = x
 		}
 	},
 	watch: {}
-};
+}
 </script>

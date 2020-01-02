@@ -5,9 +5,12 @@ function resolve(dir) {
 	return path.join(__dirname, dir)
 }
 
+//环境变量
+const isPro = process.env.VUE_APP_ISDEV ? false : true
+
 module.exports = {
 	// 基本路径
-	publicPath: process.env.NODE_ENV === "production" ? "/h5" : "/",
+	publicPath: isPro ? "/h5" : "/",
 	// 输出文件目录
 	outputDir: "dist", // 默认dist
 	// 用于嵌套生成的静态资产（js,css,img,fonts）目录
@@ -66,7 +69,7 @@ module.exports = {
 		// 启用 CSS modules
 		modules: false,
 		// 是否使用css分离插件
-		extract: process.env.NODE_ENV === "production" ? false : false,
+		extract: isPro,
 		// 开启 CSS source maps?
 		sourceMap: false,
 		// css预设器配置项

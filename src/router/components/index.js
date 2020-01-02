@@ -1,67 +1,17 @@
 // 组件演示路由
-const TabNav = r =>
-	require.ensure(
-		[],
-		() => r(require("@/components/tab-nav/demo.vue")),
-		"tabsNav"
-	);
-const ProcessCircle = r =>
-	require.ensure(
-		[],
-		() => r(require("@/components/process-circle/demo.vue")),
-		"ProcessCircle"
-	);
-const IndexList = r =>
-	require.ensure(
-		[],
-		() => r(require("@/components/index-list/demo.vue")),
-		"CountryAreaCode"
-	);
-const Swiper = r =>
-	require.ensure(
-		[],
-		() => r(require("@/components/swiper/demo.vue")),
-		"Swiper"
-	);
-const Overlay = r =>
-	require.ensure(
-		[],
-		() => r(require("@/components/overlay/demo.vue")),
-		"Overlay"
-	);
-const Dialog = r =>
-	require.ensure(
-		[],
-		() => r(require("@/components/dialog/demo.vue")),
-		"Dialog"
-	);
-const Audio = r =>
-	require.ensure(
-		[],
-		() => r(require("@/components/audio/demo.vue")),
-		"Audio"
-	);
-const Grade = r =>
-	require.ensure(
-		[],
-		() => r(require("@/components/grade/demo.vue")),
-		"Grade"
-	);
+const TabNav = r => require.ensure([], () => r(require("@/components/tab-nav/demo.vue")), "tabsNav")
+const ProcessCircle = r => require.ensure([], () => r(require("@/components/process-circle/demo.vue")), "ProcessCircle")
+const IndexList = r => require.ensure([], () => r(require("@/components/index-list/demo.vue")), "CountryAreaCode")
+const Swiper = r => require.ensure([], () => r(require("@/components/swiper/demo.vue")), "Swiper")
+const Overlay = r => require.ensure([], () => r(require("@/components/overlay/demo.vue")), "Overlay")
+const Dialog = r => require.ensure([], () => r(require("@/components/dialog/demo.vue")), "Dialog")
+const Audio = r => require.ensure([], () => r(require("@/components/audio/demo.vue")), "Audio")
+const Grade = r => require.ensure([], () => r(require("@/components/grade/demo.vue")), "Grade")
 
-const QNUploader = r =>
-	require.ensure(
-		[],
-		() => r(require("@/components/qiniuUpload/index.vue")),
-		"QNUploader"
-	);
-const MKAudio = r =>
-	require.ensure(
-		[],
-		() => r(require("@/components/mkAudio/index.vue")),
-		"MKAudio"
-	);
+const QNUploader = r => require.ensure([], () => r(require("@/components/qiniuUpload/index.vue")), "QNUploader")
+const MKAudio = r => require.ensure([], () => r(require("@/components/mkAudio/index.vue")), "MKAudio")
 
-const basePath = "";
+const basePath = ""
 
 export default [
 	{
@@ -164,4 +114,4 @@ export default [
 			keepAlive: false
 		}
 	}
-];
+]

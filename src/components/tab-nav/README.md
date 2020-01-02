@@ -13,7 +13,7 @@ TabsNav 导航栏可以使当前选中项居中
 _导入_
 
 ```javascript
-import { TabNav } from "components";
+import { TabNav } from "components"
 ```
 
 _引入标签_

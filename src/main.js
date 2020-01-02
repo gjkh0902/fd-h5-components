@@ -7,7 +7,11 @@ import { Indicator, MessageBox, Toast } from "mint-ui"
 import "mint-ui/lib/style.css"
 
 Vue.config.productionTip = false
-Vue.config.devtools = process.env.NODE_ENV === "production" ? false : true
+
+//开启dev调试
+Vue.config.devtools = process.env.VUE_APP_ISDEV ? true : false
+console.log(Vue.config)
+console.log(process, process.env)
 
 /*
  * minu-ui      全局注册常用事件
