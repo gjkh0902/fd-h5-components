@@ -1,23 +1,72 @@
 // 组件演示路由
-const tabsNav = r => require.ensure([], () => r(require("@/components/tabs-nav/demo.vue")), "tabsNav")
-const ProcessCircle = r => require.ensure([], () => r(require("@/components/process-circle/demo.vue")), "ProcessCircle")
-const IndexList = r => require.ensure([], () => r(require("@/components/index-list/demo.vue")), "CountryAreaCode")
-const Swiper = r => require.ensure([], () => r(require("@/components/swiper/demo.vue")), "Swiper")
-const Overlay = r => require.ensure([], () => r(require("@/components/overlay/demo.vue")), "Overlay")
-const Dialog = r => require.ensure([], () => r(require("@/components/dialog/demo.vue")), "Dialog")
-const Audio = r => require.ensure([], () => r(require("@/components/audio/demo.vue")), "Audio")
-const Grade = r => require.ensure([], () => r(require("@/components/grade/demo.vue")), "Grade")
+const TabNav = r =>
+	require.ensure(
+		[],
+		() => r(require("@/components/tab-nav/demo.vue")),
+		"tabsNav"
+	);
+const ProcessCircle = r =>
+	require.ensure(
+		[],
+		() => r(require("@/components/process-circle/demo.vue")),
+		"ProcessCircle"
+	);
+const IndexList = r =>
+	require.ensure(
+		[],
+		() => r(require("@/components/index-list/demo.vue")),
+		"CountryAreaCode"
+	);
+const Swiper = r =>
+	require.ensure(
+		[],
+		() => r(require("@/components/swiper/demo.vue")),
+		"Swiper"
+	);
+const Overlay = r =>
+	require.ensure(
+		[],
+		() => r(require("@/components/overlay/demo.vue")),
+		"Overlay"
+	);
+const Dialog = r =>
+	require.ensure(
+		[],
+		() => r(require("@/components/dialog/demo.vue")),
+		"Dialog"
+	);
+const Audio = r =>
+	require.ensure(
+		[],
+		() => r(require("@/components/audio/demo.vue")),
+		"Audio"
+	);
+const Grade = r =>
+	require.ensure(
+		[],
+		() => r(require("@/components/grade/demo.vue")),
+		"Grade"
+	);
 
-const QNUploader = r => require.ensure([], () => r(require("@/components/qiniuUpload/index.vue")), "QNUploader")
-const MKAudio = r => require.ensure([], () => r(require("@/components/mkAudio/index.vue")), "MKAudio")
+const QNUploader = r =>
+	require.ensure(
+		[],
+		() => r(require("@/components/qiniuUpload/index.vue")),
+		"QNUploader"
+	);
+const MKAudio = r =>
+	require.ensure(
+		[],
+		() => r(require("@/components/mkAudio/index.vue")),
+		"MKAudio"
+	);
 
-const basePath = ""
+const basePath = "";
 
 export default [
 	{
 		path: `/qiniu-uploader`,
 		name: "QNUploader",
-		// component: tabsNav => require(['@/components/tabs-nav/demo.vue'], tabsNav),
 		component: QNUploader,
 		meta: {
 			title: "七牛上传控件",
@@ -26,10 +75,9 @@ export default [
 		}
 	},
 	{
-		path: `/tabs-nav`,
-		name: "tabsNav",
-		// component: tabsNav => require(['@/components/tabs-nav/demo.vue'], tabsNav),
-		component: tabsNav,
+		path: `/tab-nav`,
+		name: "TabNav",
+		component: TabNav,
 		meta: {
 			title: "Tab导航居中",
 			icon: "icon-daohang", //iconfont图标
@@ -116,4 +164,4 @@ export default [
 			keepAlive: false
 		}
 	}
-]
+];
