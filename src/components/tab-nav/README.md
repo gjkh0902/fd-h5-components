@@ -1,4 +1,4 @@
-# TabsNav 导航栏
+# TabNav 导航栏
 
 TabsNav 导航栏可以使当前选中项居中
 
