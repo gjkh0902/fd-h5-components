@@ -82,9 +82,7 @@
 				<h3 class="title" ref="$title">已上传的图片</h3>
 				<div class="log-wrap">
 					<ul class="log-list">
-						<li class="item" v-for="(item, index) in fileName" :key="index">
-							<img :src="item.src" />{{ item.name }}
-						</li>
+						<li class="item" v-for="(item, index) in fileName" :key="index"><img :src="item.src" />{{ item.name }}</li>
 					</ul>
 				</div>
 			</aside>
@@ -94,10 +92,9 @@
 <script>
 import Vue from "vue"
 import { Toast, Cell, Switch, Field } from "mint-ui"
-import { QNUploader } from "mk-libs";
+import { MkQnUpload } from "mk-libs"
 import { fetchUploadToken } from "@service/uploadActions"
 // import shuffle from '@util/shuffle';
-
 
 Vue.component(Cell.name, Cell)
 Vue.component(Switch.name, Switch)
@@ -135,7 +132,7 @@ export default {
 	// mixins: [mixins],
 	created() {},
 	mounted() {
-		this.uploader = QNUploader({
+		this.uploader = MkQnUpload({
 			browse_button: "upload", // 上传选择的点选按钮，可以是id或者元素本身，必需
 			domain: "http://test001.pnlyy.com", // bucket域名，下载资源时用到，必需
 			fetch_upload_token: this.fetchUploadToken, // 获取上传token方法
