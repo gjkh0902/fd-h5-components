@@ -11,7 +11,13 @@
 				</template>
 			</fd-tab-nav>
 
-			<mt-button type="default" size="large" plain class="mk-top" @click="showCodeList = true">index-list</mt-button>
+			<mt-button
+				type="default"
+				size="large"
+				plain
+				class="mk-top"
+				@click="showCodeList = true"
+			>index-list</mt-button>
 
 			<fd-index-list
 				v-if="showCodeList"
@@ -36,24 +42,23 @@
 }
 </style>
 <script>
-import Vue from "vue"
-import { Button } from "mint-ui"
-Vue.component(Button.name, Button)
-import AppHeader from "@/components/appHeader"
+import Vue from "vue";
+import { Button } from "mint-ui";
+Vue.component(Button.name, Button);
+import AppHeader from "@/components/appHeader";
 
 //json数据
-import IndexListData from "../../util/test/indexList.json"
-import TabNavData from "../../util/test/tabNav.json"
+import IndexListData from "../../util/test/indexList.json";
+import TabNavData from "../../util/test/tabNav.json";
 
 //fd-h5-components
-import { IndexList, TabNav } from "fd-h5-components"
+import { IndexList, TabNav } from "fd-h5-components";
 //import { IndexList, TabNav } from "~/index" //--本地引入方式调试
 //import { IndexList, TabNav } from "&/index.umd.min.js" //--本地引入方式调试
-Vue.use(IndexList)
-Vue.use(TabNav)
+Vue.use(IndexList);
+Vue.use(TabNav);
 
 //mk-libs
-import { QNUploader, WxSdkFunc } from "mk-libs"
 export default {
 	name: "test-npm",
 	data() {
@@ -68,7 +73,7 @@ export default {
 			},
 			indexData: IndexListData,
 			navList: TabNavData
-		}
+		};
 	},
 	components: {
 		AppHeader
@@ -77,18 +82,17 @@ export default {
 	methods: {
 		onSelected(val) {
 			// indexlist选中回调
-			console.log("选中回调", val)
-			this.selected = val
-			this.showCodeList = false
+			console.log("选中回调", val);
+			this.selected = val;
+			this.showCodeList = false;
 		},
 		navChange(x) {
-			console.log("索引变化回调", x)
-			this.currIndex = x
+			console.log("索引变化回调", x);
+			this.currIndex = x;
 		}
 	},
 	mounted() {
-		console.log(QNUploader, WxSdkFunc)
-		console.log(IndexList)
+		console.log(IndexList);
 	}
-}
+};
 </script>
