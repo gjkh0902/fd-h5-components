@@ -6,11 +6,11 @@ function resolve(dir) {
 }
 
 //环境变量
-const isPro = process.env.VUE_APP_ISDEV ? false : true;
+const ISPRO = process.env.VUE_APP_ISDEV ? false : true;
 
 module.exports = {
 	// 基本路径
-	publicPath: isPro ? "/h5" : "/",
+	publicPath: ISPRO ? "/h5" : "/",
 	// 输出文件目录
 	outputDir: "dist", // 默认dist
 	// 用于嵌套生成的静态资产（js,css,img,fonts）目录
@@ -54,6 +54,7 @@ module.exports = {
 			.set("@mixins", resolve("src/mixins"))
 			.set("~", resolve("packages"))
 			.set("&", resolve("lib")),
+			// 这里只写了两个个，你可以自己再加，按这种格式.set('', resolve(''))
 			// 修复HMR
 			config.resolve.symlinks(true);
 	},
@@ -62,7 +63,7 @@ module.exports = {
 		// 启用 CSS modules
 		modules: false,
 		// 是否使用css分离插件
-		extract: isPro,
+		extract: ISPRO,
 		// 开启 CSS source maps?
 		sourceMap: false,
 		// css预设器配置项
