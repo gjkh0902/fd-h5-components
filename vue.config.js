@@ -1,12 +1,12 @@
-const path = require("path")
-const webpack = require("webpack")
+const path = require("path");
+const webpack = require("webpack");
 
 function resolve(dir) {
-	return path.join(__dirname, dir)
+	return path.join(__dirname, dir);
 }
 
 //环境变量
-const isPro = process.env.VUE_APP_ISDEV ? false : true
+const isPro = process.env.VUE_APP_ISDEV ? false : true;
 
 module.exports = {
 	// 基本路径
@@ -53,16 +53,9 @@ module.exports = {
 			.set("@plugins", resolve("src/plugins"))
 			.set("@mixins", resolve("src/mixins"))
 			.set("~", resolve("packages"))
-			.set("&", resolve("lib"))
-		// 这里只写了两个个，你可以自己再加，按这种格式.set('', resolve(''))
-		/*config.module
-              .rule('images')
-              .use('url-loader')
-                .loader('url-loader')
-                .tap(options => {
-                  // 修改它的选项...
-                  return options
-                })*/
+			.set("&", resolve("lib")),
+			// 修复HMR
+			config.resolve.symlinks(true);
 	},
 	// css相关配置
 	css: {
@@ -89,4 +82,4 @@ module.exports = {
 	pwa: {},
 	// 第三方插件配置
 	pluginOptions: {}
-}
+};
