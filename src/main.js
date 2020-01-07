@@ -24,7 +24,7 @@ Vue.prototype.$MessageBox = MessageBox
 Vue.prototype.$Indicator = Indicator
 
 new Vue({
-	router,
-	store,
-	render: h => h(App)
+    router,
+    store,
+    render: h => h(App)
 }).$mount("#app")

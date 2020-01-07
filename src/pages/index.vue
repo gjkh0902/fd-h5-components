@@ -25,7 +25,6 @@
 </template>
 <style lang="less" scoped>
 @import url("../assets/css/rem.less");
-
 .demo-container {
 	.item-content ul li.item-router {
 		cursor: pointer;

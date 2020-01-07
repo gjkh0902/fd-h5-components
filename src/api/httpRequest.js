@@ -7,20 +7,14 @@
  * @param  {String} isOutsideLink       第三方api外链路径，绝对路径，选填
  * @return {Object} Promise
  */
-import Axios from './configAxios'
+import Axios from "./configAxios"
 
-const httpRequest = (
-    type,
-    url,
-    data,
-    params,
-    isOutsideLink
-) => {
+const httpRequest = (type, url, data, params, isOutsideLink) => {
     //拼接完整api url
     url = isOutsideLink ? isOutsideLink : Axios.defaults.baseURL + url
         //GET请求时，参数赋值
     if (type === "get" && data) {
-        params = data;
+        params = data
     }
     return new Promise((resolve, reject) => {
         Axios({
@@ -28,19 +22,22 @@ const httpRequest = (
                 url: url,
                 data: data,
                 params: params,
-                withCredentials: false, //是否携带cookie信息,默认false
+                withCredentials: false //是否携带cookie信息
             })
-            .then(res => {
-                if (res.data.code === 200) {
-                    resolve(res.data)
+            .then(
+                res => {
+                    if (res.data.code === 200) {
+                        resolve(res.data)
+                    }
+                },
+                err => {
+                    reject(err)
                 }
-            }, err => {
-                reject(err)
-            })
+            )
             .catch(error => {
                 reject(error)
             })
-    });
+    })
 }
 
 export default httpRequest

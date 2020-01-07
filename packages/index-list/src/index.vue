@@ -6,11 +6,7 @@
 					<div class="index-header-title">{{ selected.name }}{{ selected.code }}</div>
 					<i class="iconfont icon-xuanzhong"></i>
 				</div>
-				<ul
-					class="index-list"
-					ref="Content"
-					:style="{ height: currentHeight + 'px', 'margin-right': navWidth + 'px' }"
-				>
+				<ul class="index-list" ref="Content" :style="{ height: currentHeight + 'px', 'margin-right': navWidth + 'px' }">
 					<index-section v-for="(item, index) in setCodeArr" :index="item.type" :key="index">
 						<index-cell
 							v-for="(items, index) in item.list"
@@ -99,8 +95,7 @@ export default {
 		if (!this.currentHeight) {
 			window.scrollTo(0, 0)
 			requestAnimationFrame(() => {
-				this.currentHeight =
-					document.documentElement.clientHeight - this.$refs.Content.getBoundingClientRect().top
+				this.currentHeight = document.documentElement.clientHeight - this.$refs.Content.getBoundingClientRect().top
 			})
 		}
 		this.init()
@@ -172,8 +167,7 @@ export default {
 			let targetDOM
 			if (targets.length > 0) {
 				targetDOM = targets[0].$el
-				this.$refs.Content.scrollTop =
-					targetDOM.getBoundingClientRect().top - this.firstSection.getBoundingClientRect().top
+				this.$refs.Content.scrollTop = targetDOM.getBoundingClientRect().top - this.firstSection.getBoundingClientRect().top
 			}
 		},
 		close() {
@@ -186,6 +180,7 @@ export default {
 </script>
 
 <style lang="less" scoped>
+//@import "../../assets/css/reset.css";
 .fd-index-list {
 	position: absolute;
 	top: 0;

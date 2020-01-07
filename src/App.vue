@@ -1,7 +1,7 @@
 <template>
     <div id="app">
         <keep-alive>
-            <router-view v-wechat-title="$route.meta.title || '首页'"></router-view>
+            <router-view></router-view>
         </keep-alive>
     </div>
 </template>
