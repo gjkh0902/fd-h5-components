@@ -11,6 +11,8 @@ const Grade = r => require.ensure([], () => r(require("@/components/grade/demo.v
 const QNUploader = r => require.ensure([], () => r(require("@/components/qiniuUpload/index.vue")), "QNUploader")
 const MKAudio = r => require.ensure([], () => r(require("@/components/mkAudio/index.vue")), "MKAudio")
 const Toast = r => require.ensure([], () => r(require("@/components/toast/demo.vue")), "Toast")
+const Alert = r => require.ensure([], () => r(require("@/components/alert/demo.vue")), 'Alert')
+const NumberScroll = r => require.ensure([], () => r(require("@/components/number-scroll/demo.vue")), 'NumberScroll')
 
 const basePath = ""
 
@@ -130,5 +132,25 @@ export default [
 			icon: "icon-xingjipingfen",
 			keepAlive: false
 		}
-	}
+	},
+    {
+        path: '/alert',
+        name: 'Alert',
+        component: Alert,
+        meta: {
+            title: 'Alert 提示',
+            icon: 'icon-daohang',
+            keepAlive: false
+        }
+    },
+    {
+        path: '/number-scroll',
+        name: 'NumberScroll',
+        component: NumberScroll,
+        meta: {
+            title: '数字卷轴',
+            icon: 'icon-daohang',
+            keepAlive: false
+        }
+    }
 ]

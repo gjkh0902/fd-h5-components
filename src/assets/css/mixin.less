@@ -97,6 +97,16 @@
 	align-items: @align;
 	flex-wrap: @wrap;
 }
+
+// flex 布局和 子元素 对其方式
+.fa(@align: center; @wrap: nowrap) {
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    flex-wrap: @wrap;
+    flex-direction: column;
+}
+
 //
 .flex {
 	display: -webkit-box;

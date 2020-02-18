@@ -1,5 +1,5 @@
 <template>
-    <div class="tabs-nav-container">
+    <div class="fd-tabs-nav-container">
         <ul class="tabs-nav-list" ref="tabsNavList" :style="month_style">
             <li class="tabs-nav-item" v-for="(item, index) in innerList" :key="index" @click="selectItem(index)" :class="[{'active': index == cIndex}]">
                 <slot name="default" :item="item" :index="index"></slot>
@@ -86,7 +86,7 @@ export default {
                 // 将 current 放置在 container 中的居中位置
                 let container = this.$refs.tabsNavList
                 // console.log(container.clientWidth)
-                let current = document.querySelector('.tabs-nav-container .tabs-nav-item.active')
+                let current = document.querySelector('.fd-tabs-nav-container .tabs-nav-item.active')
                 if (container.clientWidth < container.scrollWidth) {
                     // 需要向左移动的距离
                     let left = current.getBoundingClientRect()['left'] +
@@ -161,7 +161,7 @@ export default {
 </script>
 
 <style lang="less">
-    .tabs-nav-container {
+    .fd-tabs-nav-container {
         height: 46px;
         box-shadow: 0px 0px 0px 0px rgba(221,221,221,1);
         border-bottom: 1px solid #f6f6f6;

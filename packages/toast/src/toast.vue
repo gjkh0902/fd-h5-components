@@ -1,16 +1,16 @@
 <template>
-    <transition name="mk-toast-trans">
+    <transition name="fd-toast-trans">
         <div 
-            class="mk-toast" 
+            class="fd-toast" 
             v-show="visible" 
             :class="customClass" 
             :style="{ 'padding': iconClass === '' && custom === '' ? '10px' : '20px', 'zIndex': zIndex }">
 
-            <i class="mk-toast-icon iconfont" :class="iconClass" v-if="!custom"></i>
-            <i class="mk-toast-icon" :class="iconClass" v-html="custom" v-else></i>
+            <i class="fd-toast-icon iconfont" :class="iconClass" v-if="!custom"></i>
+            <i class="fd-toast-icon" :class="iconClass" v-html="custom" v-else></i>
             <span 
                 v-if="message"
-                class="mk-toast-text" 
+                class="fd-toast-text" 
                 :style="{ 'padding-top': iconClass === '' && custom === '' ? '0' : '10px' }">{{ message }}</span>
         </div>
     </transition>
@@ -68,11 +68,11 @@ export default {
 </script>
 
 <style lang="less" scoped>
-    .mk-toast-trans-enter, 
-    .mk-toast-trans-leave-active {
+    .fd-toast-trans-enter, 
+    .fd-toast-trans-leave-active {
         opacity: 0
     }
-    .mk-toast {
+    .fd-toast {
         position: fixed;
         max-width: 80%;
         border-radius: 5px;
@@ -84,32 +84,32 @@ export default {
         -webkit-transition: opacity .3s linear;
         transition: opacity .3s linear
     }
-    .mk-toast.pos-bottom {
+    .fd-toast.pos-bottom {
         bottom: 1rem;
         left: 50%;
         -webkit-transform: translate(-50%, 0);
                 transform: translate(-50%, 0)
     }
-    .mk-toast.pos-middle {
+    .fd-toast.pos-middle {
         left: 50%;
         top: 50%;
         -webkit-transform: translate(-50%, -50%);
                 transform: translate(-50%, -50%)
     }
-    .mk-toast.pos-top {
+    .fd-toast.pos-top {
         top: 1rem;
         left: 50%;
         -webkit-transform: translate(-50%, 0);
                 transform: translate(-50%, 0)
     }
-    .mk-toast-icon {
+    .fd-toast-icon {
         display: block;
         // max-width: 2rem;
         // max-height: 2rem;
         text-align: center;
         // font-size: 1rem
     }
-    .mk-toast-text {
+    .fd-toast-text {
         font-size: 14px;
         display: block;
         text-align: center
