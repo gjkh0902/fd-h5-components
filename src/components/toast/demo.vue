@@ -75,7 +75,7 @@ export default {
 		font-size: 1.2rem;
 		color: #ff9900;
 	}
-	.mk-toast-text {
+	.fd-toast-text {
 		color: #666;
 		font-size: 0.4rem;
 	}
