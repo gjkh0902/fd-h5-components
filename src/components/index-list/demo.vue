@@ -1,6 +1,6 @@
 <template>
 	<div class="demo-container">
-		<app-header></app-header>
+		<app-header v-if="!showCodeList"></app-header>
 		<div class="item-content">
 			<mt-cell title="选中返回字段值："></mt-cell>
 			<mt-cell title="name" :value="selected.name"></mt-cell>
