@@ -1,40 +1,35 @@
 <template>
 	<transition name="fade" v-if="isShow">
 		<div class="fd-index-list">
-			<div class="index-container">
-				<div class="index-header" @click="selectAreaCode(selected)">
-					<div class="index-header-title">{{ selected.name }}{{ selected.code }}</div>
-					<i class="iconfont icon-xuanzhong"></i>
-				</div>
-				<ul class="index-list" ref="Content" :style="{ height: currentHeight + 'px', 'margin-right': navWidth + 'px' }">
-					<index-section v-for="(item, index) in setCodeArr" :index="item.type" :key="index">
-						<index-cell
-							v-for="(items, index) in item.list"
-							:key="index"
-							:title="items.name + ' ' + items.code"
-							@click.native="selectAreaCode(items)"
-						>
-						</index-cell>
-					</index-section>
-				</ul>
-				<div class="index-nav" @touchstart="handleTouchStart" ref="Nav">
-					<ul class="index-nav-list">
-						<li class="index-nav-item" v-for="(section, sIndex) in sections" :key="sIndex">
-							{{ section.index }}
-						</li>
-					</ul>
-				</div>
-				<div class="index-indicator" v-if="showIndicator" v-show="moving">{{ currentIndicator }}</div>
+			<div class="index-header" @click="selectAreaCode(selected)">
+				<div class="index-header-title">{{ selected.name }}{{ selected.code }}</div>
+				<i class="iconfont icon-xuanzhong"></i>
 			</div>
+			<ul class="index-list" ref="Content" :style="{ height: currentHeight + 'px', 'margin-right': navWidth + 'px' }">
+				<index-section v-for="(item, index) in setCodeArr" :index="item.type" :key="index">
+					<index-cell
+						v-for="(items, index) in item.list"
+						:key="index"
+						:title="items.name + ' ' + items.code"
+						@click.native="selectAreaCode(items)"
+					></index-cell>
+				</index-section>
+			</ul>
+			<div class="index-nav" @touchstart="handleTouchStart" ref="Nav">
+				<ul class="index-nav-list">
+					<li class="index-nav-item" v-for="(section, sIndex) in sections" :key="sIndex">{{ section.index }}</li>
+				</ul>
+			</div>
+			<div class="index-indicator" v-if="showIndicator" v-show="moving">{{ currentIndicator }}</div>
 		</div>
 	</transition>
 </template>
 
 <script>
-import IndexSection from "./IndexSection.vue"
-import IndexCell from "./IndexCell.vue"
+import IndexSection from './IndexSection.vue'
+import IndexCell from './IndexCell.vue'
 export default {
-	name: "fd-index-list",
+	name: 'fd-index-list',
 	props: {
 		value: {
 			// v-model绑定，是否展示
@@ -68,8 +63,8 @@ export default {
 		}
 	},
 	components: {
-		"index-section": IndexSection,
-		"index-cell": IndexCell
+		'index-section': IndexSection,
+		'index-cell': IndexCell
 	},
 	data() {
 		return {
@@ -80,7 +75,7 @@ export default {
 			indicatorTime: null,
 			moving: false,
 			firstSection: null,
-			currentIndicator: "",
+			currentIndicator: '',
 			currentHeight: this.height,
 			navOffsetX: 0,
 			setCodeArr: []
@@ -119,19 +114,19 @@ export default {
 	methods: {
 		selectAreaCode(val) {
 			//this.close()
-			this.$emit("onSelected", val)
+			this.$emit('onSelected', val)
 		},
 		init() {
 			this.$nextTick(() => {
 				this.navWidth = this.$refs.Nav.clientWidth
 			})
-			let listItems = this.$refs.Content.getElementsByTagName("li")
+			let listItems = this.$refs.Content.getElementsByTagName('li')
 			if (listItems.length > 0) {
 				this.firstSection = listItems[0]
 			}
 		},
 		handleTouchStart(e) {
-			if (e.target.tagName !== "LI") {
+			if (e.target.tagName !== 'LI') {
 				return
 			}
 			this.navOffsetX = e.changedTouches[0].clientX
@@ -140,8 +135,8 @@ export default {
 				clearTimeout(this.indicatorTime)
 			}
 			this.moving = true
-			window.addEventListener("touchmove", this.handleTouchMove)
-			window.addEventListener("touchend", this.handleTouchEnd)
+			window.addEventListener('touchmove', this.handleTouchMove)
+			window.addEventListener('touchend', this.handleTouchEnd)
 		},
 		handleTouchMove(e) {
 			if (e) {
@@ -152,14 +147,14 @@ export default {
 		handleTouchEnd() {
 			this.indicatorTime = setTimeout(() => {
 				this.moving = false
-				this.currentIndicator = ""
+				this.currentIndicator = ''
 			}, 500)
-			window.removeEventListener("touchmove", this.handleTouchMove)
-			window.removeEventListener("touchend", this.handleTouchEnd)
+			window.removeEventListener('touchmove', this.handleTouchMove)
+			window.removeEventListener('touchend', this.handleTouchEnd)
 		},
 		scrollList(y) {
 			let currentItem = document.elementFromPoint(this.navOffsetX, y)
-			if (!currentItem || !currentItem.classList.contains("index-nav-item")) {
+			if (!currentItem || !currentItem.classList.contains('index-nav-item')) {
 				return
 			}
 			this.currentIndicator = currentItem.innerText
@@ -173,7 +168,7 @@ export default {
 		close() {
 			// console.log('组件内部关闭')
 			this.isShow = false
-			this.$emit("input", this.isShow)
+			this.$emit('input', this.isShow)
 		}
 	}
 }
@@ -182,24 +177,10 @@ export default {
 <style lang="less" scoped>
 //@import "../../assets/css/reset.css";
 .fd-index-list {
-	position: absolute;
-	top: 0;
-	right: 0;
-	bottom: 0;
-	left: 0;
-	height: 100%;
-	height: 100vh;
-	// z-index: 999999;
+	width: 100%;
+	position: relative;
 	overflow: hidden;
-	background-color: #fff;
-	text-align: left;
-
-	.index-container {
-		width: 100%;
-		position: relative;
-		overflow: hidden;
-	}
-
+	z-index: 999;
 	.index-header {
 		background-color: #fff;
 		box-sizing: border-box;

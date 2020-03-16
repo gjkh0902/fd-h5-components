@@ -1,56 +1,56 @@
 <template>
 	<div class="demo-container">
-		<app-header v-if="!showCodeList"></app-header>
+		<app-header v-if="!indexListConf.showList"></app-header>
 		<div class="item-content">
-			<mt-cell title="选中返回字段值："></mt-cell>
-			<mt-cell title="name" :value="selected.name"></mt-cell>
-			<mt-cell title="code" :value="selected.code">1</mt-cell>
-			<mt-cell title="firstName" :value="selected.firstName"></mt-cell>
-			<mt-cell title="isHot" :value="selected.isHot"></mt-cell>
-			<mt-button type="default" size="large" @click="showCodeList = true">点击导航</mt-button>
-			<!-- <country-area-code v-if="showCodeList" v-model="showCodeList" :selected="selected" :indexData="indexData" @onSelected="onSelected">
-                </country-area-code> -->
+			<div v-if="!indexListConf.showList">
+				<mt-cell title="选中返回字段值："></mt-cell>
+				<mt-cell title="name" :value="indexListConf.selected.name"></mt-cell>
+				<mt-cell title="code" :value="indexListConf.selected.code">1</mt-cell>
+				<mt-cell title="firstName" :value="indexListConf.selected.firstName"></mt-cell>
+				<mt-cell title="isHot" :value="indexListConf.selected.isHot"></mt-cell>
+				<mt-button type="default" size="large" @click="indexListConf.showList = true">点击导航</mt-button>
+			</div>
 			<fd-index-list
-				v-if="showCodeList"
-				v-model="showCodeList"
-				:selected="selected"
-				:indexData="indexData"
-				@onSelected="onSelected"
+				v-if="indexListConf.showList"
+				v-model="indexListConf.showList"
+				:selected="indexListConf.selected"
+				:indexData="indexListConf.indexData"
+				@onSelected="indexListSelected"
 			></fd-index-list>
 		</div>
 	</div>
 </template>
 <style lang="less" scoped>
-@import url("../../assets/css/rem.less");
+@import url('../../assets/css/rem.less');
 .demo-container {
-	.fd-ndex-list {
-		padding-top: 1.5rem;
-	}
+	padding-top: 0;
 }
 </style>
 <script>
-import Vue from "vue"
-import { Cell, Button } from "mint-ui"
-import { IndexList } from "fd-h5-components"
-//import { IndexList } from "~/index" //--本地引入方式调试
+import Vue from 'vue'
+import { Cell, Button } from 'mint-ui'
+import { IndexList } from 'fd-h5-components'
+//import { IndexList } from '~/index' //--本地引入方式调试
 Vue.use(IndexList)
-import IndexListData from "../../util/test/indexList.json"
-import AppHeader from "../appHeader"
+import IndexListData from '../../util/test/indexList.json'
+import AppHeader from '../appHeader'
 Vue.component(Cell.name, Cell)
 Vue.component(Button.name, Button)
 export default {
 	data() {
 		return {
-			showCodeList: false, // 显示国家地区区号组件
-			selected: {
-				// 默认选中的区号信息
-				name: "中国",
-				firstName: "Z",
-				code: "+86",
-				isHot: "1"
-			},
-			indexData: IndexListData,
-			isShowCommon: false
+			//初始化indexlist
+			indexListConf: {
+				showList: false, // 控制显隐
+				selected: {
+					// 默认选中
+					name: '中国',
+					firstName: 'Z',
+					code: '+86',
+					isHot: '1'
+				},
+				indexData: IndexListData
+			}
 		}
 	},
 	components: {
@@ -64,13 +64,13 @@ export default {
 	mounted() {},
 	watch: {},
 	methods: {
-		onSelected(val) {
+		indexListSelected(val) {
 			// 选中回调
-			console.log("选中回调", val)
-			this.selected = val
+			console.log('选中回调', val)
+			this.indexListConf.selected = val
 
 			//关掉
-			this.showCodeList = false
+			this.indexListConf.showList = false
 		}
 	}
 }

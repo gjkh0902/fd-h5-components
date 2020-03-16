@@ -5,12 +5,7 @@
 		<div class="item-content">
 			<mt-index-list>
 				<mt-index-section v-for="(item, index) in IndexListData" :key="index" :index="item.type">
-					<mt-cell
-						v-for="(citem, cindex) in item.list"
-						:key="cindex"
-						:title="citem.name"
-						@click.native="checkedData(citem)"
-					>
+					<mt-cell v-for="(citem, cindex) in item.list" :key="cindex" :title="citem.name" @click.native="checkedData(citem)">
 					</mt-cell>
 				</mt-index-section>
 			</mt-index-list>
@@ -19,15 +14,15 @@
 	</div>
 </template>
 <script>
-import Vue from "vue"
-import IndexListData from "../../util/test/indexList.json"
-import { IndexList, IndexSection, Cell } from "mint-ui"
-import AppHeader from "@/components/appHeader"
+import Vue from 'vue'
+import IndexListData from '../../util/test/indexList.json'
+import { IndexList, IndexSection, Cell } from 'mint-ui'
+import AppHeader from '@/components/appHeader'
 Vue.component(IndexList.name, IndexList)
 Vue.component(IndexSection.name, IndexSection)
 Vue.component(Cell.name, Cell)
 export default {
-	name: "test-Index-list",
+	name: 'test-Index-list',
 	data() {
 		return {
 			IndexListData: IndexListData || []
@@ -45,7 +40,7 @@ export default {
 		}
 	},
 	mounted() {
-		console.log(TestJsonData)
+		console.log(IndexListData)
 	}
 }
 </script>
