@@ -1,8 +1,8 @@
 <template>
 	<div class="demo-container">
-		<app-header v-if="!indexListConf.showList"></app-header>
+		<app-header></app-header>
 		<div class="item-content">
-			<div v-if="!indexListConf.showList">
+			<div class="index-selected" v-if="!indexListConf.showList">
 				<mt-cell title="选中返回字段值："></mt-cell>
 				<mt-cell title="name" :value="indexListConf.selected.name"></mt-cell>
 				<mt-cell title="code" :value="indexListConf.selected.code">1</mt-cell>
@@ -23,14 +23,14 @@
 <style lang="less" scoped>
 @import url('../../assets/css/rem.less');
 .demo-container {
-	padding-top: 0;
+	padding-top: 1.5rem;
 }
 </style>
 <script>
 import Vue from 'vue'
 import { Cell, Button } from 'mint-ui'
-import { IndexList } from 'fd-h5-components'
-//import { IndexList } from '~/index' //--本地引入方式调试
+//import { IndexList } from 'fd-h5-components'
+import { IndexList } from '~/index' //--本地引入方式调试
 Vue.use(IndexList)
 import IndexListData from '../../util/test/indexList.json'
 import AppHeader from '../appHeader'
@@ -41,7 +41,7 @@ export default {
 		return {
 			//初始化indexlist
 			indexListConf: {
-				showList: false, // 控制显隐
+				showList: true, // 控制显隐
 				selected: {
 					// 默认选中
 					name: '中国',
