@@ -11,61 +11,68 @@
 				</template>
 			</fd-tab-nav>
 
-			<mt-button type="default" size="large" plain class="mk-top" @click="showCodeList = true">index-list</mt-button>
+			<mt-button
+				type="default"
+				size="large"
+				plain
+				class="mk-top"
+				@click="indexListConf.showList = true"
+			>index-list</mt-button>
 
 			<fd-index-list
-				v-if="showCodeList"
-				v-model="showCodeList"
-				:selected="selected"
-				:indexData="indexData"
-				@onSelected="onSelected"
+				v-if="indexListConf.showList"
+				v-model="indexListConf.showList"
+				:selected="indexListConf.selected"
+				:indexData="indexListConf.indexData"
+				@onSelected="indexListSelected"
 			></fd-index-list>
 		</div>
 		<!-- 统一内容模版结束 -->
 	</div>
 </template>
 <style lang="less" scoped>
-@import url("../../assets/css/rem.less");
+@import url('../../assets/css/rem.less');
 .demo-container {
-	.fd-index-list {
-		padding-top: 1.5rem;
-	}
 	.mk-top {
 		margin-top: 1rem;
 	}
 }
 </style>
 <script>
-import Vue from "vue"
-import { Button } from "mint-ui"
+import Vue from 'vue'
+import { Button } from 'mint-ui'
 Vue.component(Button.name, Button)
-import AppHeader from "@/components/appHeader"
+import AppHeader from '@/components/appHeader'
 
 //json数据
-import IndexListData from "../../util/test/indexList.json"
-import TabNavData from "../../util/test/tabNav.json"
+import IndexListData from '../../util/test/indexList.json'
+import TabNavData from '../../util/test/tabNav.json'
 
 //fd-h5-components
-import { IndexList, TabNav } from "fd-h5-components"
+import { IndexList, TabNav } from 'fd-h5-components'
 //import { IndexList, TabNav } from "~/index" //--本地引入方式调试
 // import { IndexList, TabNav } from "&/index.umd.min.js" //--本地引入方式调试
 Vue.use(IndexList)
 Vue.use(TabNav)
 
 export default {
-	name: "test-npm",
+	name: 'test-npm',
 	data() {
 		return {
-			showCodeList: false, //显示index-list组件
-			selected: {
-				// 默认选中的信息
-				name: "中国",
-				firstName: "Z",
-				code: "+86",
-				isHot: "1"
+			//初始化indexlist
+			indexListConf: {
+				showList: false, // 控制显隐
+				selected: {
+					// 默认选中
+					name: '中国',
+					firstName: 'Z',
+					code: '+86',
+					isHot: '1'
+				},
+				indexData: IndexListData
 			},
-			indexData: IndexListData,
-			navList: TabNavData
+			currIndex: 0,
+			navList: TabNavData || []
 		}
 	},
 	components: {
@@ -73,14 +80,16 @@ export default {
 	},
 	created() {},
 	methods: {
-		onSelected(val) {
-			// indexlist选中回调
-			console.log("选中回调", val)
-			this.selected = val
-			this.showCodeList = false
+		indexListSelected(val) {
+			// 选中回调
+			console.log('选中回调', val)
+			this.indexListConf.selected = val
+
+			//关掉
+			this.indexListConf.showList = false
 		},
 		navChange(x) {
-			console.log("索引变化回调", x)
+			console.log('索引变化回调', x)
 			this.currIndex = x
 		}
 	},

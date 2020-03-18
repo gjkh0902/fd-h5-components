@@ -2,6 +2,7 @@
 * reset.css 重置浏览器默认样式（全局）
 * 注意：reset.css 不要轻易修改。
 */
+
 body,
 div,
 span,
@@ -28,7 +29,8 @@ b,
 textarea,
 button,
 input,
-select {
+select,
+img {
     padding: 0;
     margin: 0;
     list-style: none;
@@ -41,6 +43,7 @@ select {
     tap-highlight-color: transparent;
     -moz-tap-highlight-color: transparent;
     -webkit-tap-highlight-color: transparent;
+    /* -webkit-overflow-scrolling: touch; */
 }
 
 html,
@@ -49,7 +52,8 @@ body {
     width: 100%;
 }
 
-fieldset,img {
+fieldset,
+img {
     border: 0;
 }
 
@@ -102,21 +106,23 @@ textarea {
     display: block;
 }
 
-input[type="text"]:focus {
+input[type='text']:focus {
     outline: 0;
-  }
-.clearfix:after{
-    height:0;
-    line-height:0;
-    display:block;
-    visibility:hidden;
-    clear:both;
+}
+
+.clearfix:after {
+    height: 0;
+    line-height: 0;
+    display: block;
+    visibility: hidden;
+    clear: both;
     content: '';
 }
 
-.clearfix{
-　　zoom:1;
+.clearfix {
+    zoom: 1;
 }
+
 .mint-indicator-wrapper {
     z-index: 99;
 }

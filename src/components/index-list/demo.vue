@@ -21,16 +21,16 @@
 	</div>
 </template>
 <style lang="less" scoped>
-@import url('../../assets/css/rem.less');
 .demo-container {
 	padding-top: 1.5rem;
 }
 </style>
+
 <script>
 import Vue from 'vue'
 import { Cell, Button } from 'mint-ui'
-//import { IndexList } from 'fd-h5-components'
-import { IndexList } from '~/index' //--本地引入方式调试
+import { IndexList } from 'fd-h5-components'
+//import { IndexList } from '~/index' //--本地引入方式调试
 Vue.use(IndexList)
 import IndexListData from '../../util/test/indexList.json'
 import AppHeader from '../appHeader'
@@ -41,7 +41,7 @@ export default {
 		return {
 			//初始化indexlist
 			indexListConf: {
-				showList: true, // 控制显隐
+				showList: false, // 控制显隐
 				selected: {
 					// 默认选中
 					name: '中国',

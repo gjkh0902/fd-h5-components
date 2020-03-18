@@ -175,12 +175,12 @@ export default {
 </script>
 
 <style lang="less" scoped>
-//@import "../../assets/css/reset.css";
 .fd-index-list {
 	width: 100%;
 	position: relative;
-	overflow: hidden;
 	z-index: 999;
+	overflow: hidden;
+	// -webkit-overflow-scrolling: touch;
 	.index-header {
 		background-color: #fff;
 		box-sizing: border-box;
@@ -214,9 +214,10 @@ export default {
 		margin: 0;
 		padding: 0;
 		overflow: auto;
-		margin-top: 48px;
+		padding-top: 48px;
+		// margin-top: -1px;
+		// min-height: calc(100% + 1px);
 	}
-
 	.index-nav {
 		position: absolute;
 		top: 48px;

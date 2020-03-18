@@ -1,18 +1,16 @@
 <template>
-    <div id="app">
-        <keep-alive>
-            <router-view></router-view>
-        </keep-alive>
-    </div>
+	<div id="app">
+		<router-view></router-view>
+	</div>
 </template>
 
 <script>
 export default {
-    name: 'app'
+	name: 'app'
 }
 </script>
 
 <style>
-    @import './assets/css/reset.css';
-    @import './assets/css/common.css';
+@import './assets/css/reset.css';
+@import './assets/css/common.css';
 </style>

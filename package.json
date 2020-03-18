@@ -16,8 +16,10 @@
     ],
     "private": false,
     "scripts": {
-        "serve": "vue-cli-service serve",
-        "build": "vue-cli-service build",
+        "serve": "vue-cli-service serve --mode local",
+        "build:dev": "vue-cli-service build --mode development",
+        "build:pre": "vue-cli-service build --mode prerelease",
+        "build:prd": "vue-cli-service build --mode production",
         "lint": "vue-cli-service lint",
         "dll": "webpack -p --progress --config ./webpack.dll.conf.js",
         "lib": "vue-cli-service build --target lib --name index --dest lib packages/index.js --mode lib"

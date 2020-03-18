@@ -9,49 +9,38 @@
 					<div>{{ scope.item.name }}</div>
 				</template>
 			</fd-tab-nav>
-			<!-- <br />
-			<div class="functions">
-				<button class="demo-btn" @click="navList = navList1">切换数据源：4个</button>
-				<button class="demo-btn" @click="navList = navList2">切换数据源：8个</button>
-				<button class="demo-btn" @click="currIndex = 0">选中第一个</button>
-				<button class="demo-btn" @click="currIndex = 2">选中第三个</button>
-				<button class="demo-btn" @click="currIndex = navList.length - 1">选中第最后一个</button>
-			</div> -->
 		</div>
 	</div>
 </template>
 
 <script>
-import Vue from "vue"
+import Vue from 'vue'
 // import { TabNav } from "fd-h5-components"
-import { TabNav } from "~/index" //--本地引入方式调试
+import { TabNav } from '~/index' //--本地引入方式调试
 // import {  TabNav } from "&/index.umd.min.js" //--本地引入方式调试
 
 Vue.use(TabNav)
 
-import TabNavData from "../../util/test/tabNav.json"
-import AppHeader from "../appHeader"
+import TabNavData from '../../util/test/tabNav.json'
+import AppHeader from '../appHeader'
 export default {
 	data() {
 		return {
 			currIndex: 0,
-			navList: [],
-			navList1: TabNavData
+			navList: TabNavData || []
 		}
 	},
 	components: {
 		AppHeader
 	},
-	created() {
-		this.navList = this.navList1
-	},
+	created() {},
 	mounted() {
 		// window.addEventListener('resize', this.handleScroll)
 		// window.addEventListener('scroll', this.handleScroll, false)
 	},
 	methods: {
 		navChange(x) {
-			console.log("索引变化", x)
+			console.log('索引变化', x)
 			this.currIndex = x
 		}
 	},

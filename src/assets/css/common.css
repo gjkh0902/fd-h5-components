@@ -3,7 +3,7 @@
 * 注意：common.css 是根据项目情况来定，不同项目common.css可以不一样
 */
 
-@import url("https://at.alicdn.com/t/font_1549387_k1071mrmac8.css");
+@import url('https://at.alicdn.com/t/font_1549387_k1071mrmac8.css');
 html,
 body {
     height: 100%;
@@ -13,8 +13,7 @@ body {
     margin: 0 auto;
     border: none;
     color: #666;
-    font-family: "Helvetica", "Microsoft Yahei";
-    /* -webkit-overflow-scrolling: touch; */
+    font-family: 'Helvetica', 'Microsoft Yahei';
 }
 
 a,

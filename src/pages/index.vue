@@ -24,7 +24,7 @@
 	</div>
 </template>
 <style lang="less" scoped>
-@import url("../assets/css/rem.less");
+@import url('../assets/css/rem.less');
 .demo-container {
 	.item-content ul li.item-router {
 		cursor: pointer;
@@ -49,13 +49,13 @@
 }
 </style>
 <script>
-import Vue from "vue"
-import { Cell } from "mint-ui"
+import Vue from 'vue'
+import { Cell } from 'mint-ui'
 Vue.component(Cell.name, Cell)
-import RouterConfig from "../router/index"
+import RouterConfig from '../router/index'
 
 export default {
-	name: "index",
+	name: 'index',
 	data() {
 		return {
 			routerConfig: RouterConfig.options.routes || [],
