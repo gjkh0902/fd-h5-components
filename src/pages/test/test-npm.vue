@@ -11,13 +11,7 @@
 				</template>
 			</fd-tab-nav>
 
-			<mt-button
-				type="default"
-				size="large"
-				plain
-				class="mk-top"
-				@click="indexListConf.showList = true"
-			>index-list</mt-button>
+			<mt-button type="default" size="large" plain class="mk-top" @click="indexListConf.showList = true">index-list</mt-button>
 
 			<fd-index-list
 				v-if="indexListConf.showList"
@@ -30,6 +24,33 @@
 		<!-- 统一内容模版结束 -->
 	</div>
 </template>
+<style lang="less">
+//toast demo css
+.custom {
+	/* width: 4rem; */
+	background-color: #f1f3f4 !important;
+	.icon-success1 {
+		font-size: 1.2rem;
+		color: #62b587;
+	}
+	.icon-error {
+		font-size: 1.2rem;
+		color: #ff4d00;
+	}
+	.icon-warn {
+		font-size: 1.2rem;
+		color: #ff9900;
+	}
+	.fd-toast-text {
+		color: #666;
+		font-size: 0.4rem;
+	}
+}
+.icon-custom {
+	width: 1.5rem;
+	height: 1.5rem;
+}
+</style>
 <style lang="less" scoped>
 @import url('../../assets/css/rem.less');
 .demo-container {
@@ -49,7 +70,7 @@ import IndexListData from '../../util/test/indexList.json'
 import TabNavData from '../../util/test/tabNav.json'
 
 //fd-h5-components
-import { IndexList, TabNav } from 'fd-h5-components'
+import { IndexList, TabNav, Toast } from 'fd-h5-components'
 //import { IndexList, TabNav } from "~/index" //--本地引入方式调试
 // import { IndexList, TabNav } from "&/index.umd.min.js" //--本地引入方式调试
 Vue.use(IndexList)
@@ -95,6 +116,12 @@ export default {
 	},
 	mounted() {
 		console.log(IndexList)
+		Toast('test toast')
+		Toast({
+			message: '这是一个成功信息，这是一个成功信息，这是一个成功信息',
+			className: 'custom',
+			iconClass: 'icon-success1'
+		})
 	}
 }
 </script>

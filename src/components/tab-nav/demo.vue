@@ -3,7 +3,7 @@
 	<div class="demo-container">
 		<app-header></app-header>
 		<div class="item-content">
-			<fd-tab-nav :list="navList" :curr-index="currIndex" :on-change="navChange">
+			<fd-tab-nav :list="tabNavConf.navList" :curr-index="tabNavConf.currIndex" :on-change="tabNavChange">
 				<template slot-scope="scope">
 					<!-- <div>索引：{{scope.index}}</div> -->
 					<div>{{ scope.item.name }}</div>
@@ -26,8 +26,10 @@ import AppHeader from '../appHeader'
 export default {
 	data() {
 		return {
-			currIndex: 0,
-			navList: TabNavData || []
+			tabNavConf: {
+				currIndex: 0,
+				navList: TabNavData || []
+			}
 		}
 	},
 	components: {
@@ -39,7 +41,7 @@ export default {
 		// window.addEventListener('scroll', this.handleScroll, false)
 	},
 	methods: {
-		navChange(x) {
+		tabNavChange(x) {
 			console.log('索引变化', x)
 			this.currIndex = x
 		}

@@ -1,65 +1,75 @@
 <template>
 	<!-- header -->
 	<div class="demo-container">
-		<button class="btn-toast" @click="defaultToast">基本样式</button>
-		<button class="btn-toast" @click="defaultSuccessToast">默认成功</button>
-		<button class="btn-toast" @click="defaultFailToast">默认失败</button>
-		<button class="btn-toast" @click="defaultWarnToast">默认警告</button>
-		<button class="btn-toast" @click="customToast">自定义</button>
+		<app-header></app-header>
+		<div class="functions">
+			<mt-button type="default" size="large" @click="defaultToast">基本样式</mt-button>
+			<mt-button type="default" size="large" @click="defaultSuccessToast">默认成功</mt-button>
+			<mt-button type="default" size="large" @click="defaultFailToast">默认失败</mt-button>
+			<mt-button type="default" size="large" @click="defaultWarnToast">默认警告</mt-button>
+			<mt-button type="default" size="large" @click="customToast">自定义(html标签)</mt-button>
+		</div>
 	</div>
 </template>
 
 <script>
-import { Toast } from "fd-h5-components"
+import Vue from 'vue'
+import { Button } from 'mint-ui'
+Vue.component(Button.name, Button)
+//import { Toast } from "fd-h5-components"
 // import Toast from '~/toast/index.js';
-//import { Toast } from "~/index" //--本地引入方式调试
+import { Toast } from '~/index' //--本地引入方式调试
 // import { Toast } from 'mint-ui';
 // import { Toast } from "&/index.umd.min.js" //--本地引入方式调试
-import icon from "@assets/logo.png"
+import icon from '@assets/logo.png'
+import AppHeader from '../appHeader'
 
 export default {
 	data() {
 		return {}
 	},
-	components: {},
+	components: {
+		AppHeader
+	},
 	created() {},
 	mounted() {},
 	methods: {
 		defaultToast() {
-			Toast("这是一个Toast")
+			Toast('这是一个Toast')
 		},
 		defaultSuccessToast() {
 			Toast({
-				message: "这是一个成功信息",
-				className: "custom",
-				iconClass: "icon-success1"
+				message: '这是一个成功信息',
+				className: 'custom',
+				iconClass: 'icon-success1'
 			})
 		},
 		defaultFailToast() {
 			Toast({
-				message: "这是一个错误信息",
-				className: "custom",
-				iconClass: "icon-error"
+				message: '这是一个错误信息',
+				className: 'custom',
+				iconClass: 'icon-error'
 			})
 		},
 		defaultWarnToast() {
 			Toast({
-				message: "这是一个警告信息",
-				className: "custom",
-				iconClass: "icon-warn"
+				message: '这是一个警告信息',
+				className: 'custom',
+				iconClass: 'icon-warn'
 			})
 		},
 		customToast() {
 			Toast({
-				message: "hello world!",
+				message: 'hello world!',
 				custom: `<img class="icon-custom" src="${icon}" />`,
-				className: "custom"
+				className: 'custom'
 			})
 		}
 	}
 }
 </script>
 <style lang="less">
+//toast demo css
 .custom {
 	/* width: 4rem; */
 	background-color: #f1f3f4 !important;
@@ -87,13 +97,10 @@ export default {
 </style>
 <style lang="less" scoped>
 .demo-container {
-	padding: 1rem;
-	.btn-toast {
+	padding: 1.5rem 0 0 0;
+	.mint-button {
 		margin: 0 0.5rem 0.5rem 0;
-		width: 2rem;
-		height: 1rem;
-		border: #ddd solid 1px;
-		background-color: #fff;
+		cursor: pointer;
 	}
 }
 </style>
