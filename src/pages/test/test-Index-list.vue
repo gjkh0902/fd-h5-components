@@ -5,8 +5,14 @@
 		<div class="item-content">
 			<mt-index-list>
 				<mt-index-section v-for="(item, index) in IndexListData" :key="index" :index="item.type">
-					<mt-cell v-for="(citem, cindex) in item.list" :key="cindex" :title="citem.name" @click.native="checkedData(citem)">
-					</mt-cell>
+					<mt-cell
+						v-for="(citem, cindex) in item.list"
+						:key="cindex"
+						:title="citem.name"
+						:label="citem.code"
+						:value="0"
+						@click.native="checkedData(citem)"
+					></mt-cell>
 				</mt-index-section>
 			</mt-index-list>
 		</div>

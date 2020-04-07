@@ -5,8 +5,10 @@
 			<div class="index-selected" v-if="!indexListConf.showList">
 				<mt-cell title="选中返回字段值："></mt-cell>
 				<mt-cell title="name" :value="indexListConf.selected.name"></mt-cell>
-				<mt-cell title="code" :value="indexListConf.selected.code">1</mt-cell>
+				<mt-cell title="code" :value="indexListConf.selected.code" v-if="indexListConf.selected.code"></mt-cell>
+				<mt-cell title="label" :value="indexListConf.selected.label" v-if="indexListConf.selected.label"></mt-cell>
 				<mt-cell title="firstName" :value="indexListConf.selected.firstName"></mt-cell>
+				<mt-cell title="desc" :value="indexListConf.selected.desc" v-if="indexListConf.selected.desc"></mt-cell>
 				<mt-cell title="isHot" :value="indexListConf.selected.isHot"></mt-cell>
 				<mt-button type="default" size="large" @click="indexListConf.showList = true">点击导航</mt-button>
 			</div>
@@ -44,10 +46,11 @@ export default {
 				showList: false, // 控制显隐
 				selected: {
 					// 默认选中
-					name: '中国',
-					firstName: 'Z',
-					code: '+86',
-					isHot: '1'
+					name: '中国', //显示名
+					firstName: 'Z', //分组别名
+					code: '+86', //label标签或编码
+					desc: '', //描述
+					isHot: 0 //是否热门
 				},
 				indexData: IndexListData
 			}

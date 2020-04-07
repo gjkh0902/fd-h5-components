@@ -5,19 +5,29 @@
 				<div class="index-header-title">{{ selected.name }}{{ selected.code }}</div>
 				<i class="iconfont icon-xuanzhong"></i>
 			</div>
-			<ul class="index-list" ref="Content" :style="{ height: currentHeight + 'px', 'margin-right': navWidth + 'px' }">
+			<ul
+				class="index-list"
+				ref="Content"
+				:style="{ height: currentHeight + 'px', 'margin-right': navWidth + 'px' }"
+			>
 				<index-section v-for="(item, index) in setCodeArr" :index="item.type" :key="index">
 					<index-cell
 						v-for="(items, index) in item.list"
 						:key="index"
-						:title="items.name + ' ' + items.code"
+						:title="items.name"
+						:desc="items.desc"
+						:label="items.code || items.label"
 						@click.native="selectAreaCode(items)"
 					></index-cell>
 				</index-section>
 			</ul>
 			<div class="index-nav" @touchstart="handleTouchStart" ref="Nav">
 				<ul class="index-nav-list">
-					<li class="index-nav-item" v-for="(section, sIndex) in sections" :key="sIndex">{{ section.index }}</li>
+					<li
+						class="index-nav-item"
+						v-for="(section, sIndex) in sections"
+						:key="sIndex"
+					>{{ section.index }}</li>
 				</ul>
 			</div>
 			<div class="index-indicator" v-if="showIndicator" v-show="moving">{{ currentIndicator }}</div>

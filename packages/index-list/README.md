@@ -44,6 +44,7 @@ export default {
                     'name': '中国',
                     'firstName': 'Z',
                     'code': '+86',
+                    'desc': '',
                     'isHot': '1'
                 },
                 indexData: [
@@ -54,6 +55,7 @@ export default {
                                 "name": "美国",
                                 "firstName": "M",
                                 "code": "+1",
+                                "desc": "",
                                 "isHot": "1"
                             },
                         ]
@@ -65,6 +67,7 @@ export default {
                                 "name": "比利时",
                                 "firstName": "B",
                                 "code": "+32",
+                                "desc": "",
                                 "isHot": "0"
                             }
                         ]
@@ -100,7 +103,8 @@ let data = [
             {
                 "name": "",         // 显示名
                 "firstName": "",    // 分组别名
-                "code": "",         // 内容
+                "code": "",         // label标签或编码
+                "desc": "",         // 描述
                 "isHot": ""         // 是否常用
             },
             ...,
@@ -110,11 +114,12 @@ let data = [
 ]
 ```
 
-| 参数      | 类型   | 默认值 | 说明             |
-| --------- | ------ | ------ | ---------------- |
-| type      | String | `""`   | 数据分组别名     |
-| list      | Array  | `[]`   | 一个数据分组数据 |
-| name      | String | `""`   | 显示名           |
-| firstName | String | `""`   | 分组别名         |
-| code      | String | `""`   | 内容             |
-| isHot     | Number | `0`    | 是否常用         |
+| 参数      | 类型   | 默认值 | 说明                                                                      |
+| --------- | ------ | ------ | ------------------------------------------------------------------------- |
+| type      | String | `""`   | 数据分组别名                                                              |
+| list      | Array  | `[]`   | 一个数据分组数据                                                          |
+| name      | String | `""`   | 显示名                                                                    |
+| firstName | String | `""`   | 分组别名                                                                  |
+| code      | String | `""`   | label 标签或编码(默认换行显示)，v1.3.1(包含)版本后 code 更换为 label 参数 |
+| isHot     | Number | `0`    | 是否常用                                                                  |
+| desc      | String | `""`   | 描述(默认右边对齐显示)                                                    |
