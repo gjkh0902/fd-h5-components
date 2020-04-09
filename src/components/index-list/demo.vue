@@ -2,7 +2,7 @@
 	<div class="demo-container">
 		<app-header></app-header>
 		<div class="item-content">
-			<div class="index-selected" v-if="!indexListConf.showList">
+			<!-- <div class="index-selected" v-if="!indexListConf.showList & indexListConf.selected">
 				<mt-cell title="选中返回字段值："></mt-cell>
 				<mt-cell title="name" :value="indexListConf.selected.name"></mt-cell>
 				<mt-cell title="code" :value="indexListConf.selected.code" v-if="indexListConf.selected.code"></mt-cell>
@@ -11,7 +11,7 @@
 				<mt-cell title="desc" :value="indexListConf.selected.desc" v-if="indexListConf.selected.desc"></mt-cell>
 				<mt-cell title="isHot" :value="indexListConf.selected.isHot"></mt-cell>
 				<mt-button type="default" size="large" @click="indexListConf.showList = true">点击导航</mt-button>
-			</div>
+			</div> -->
 			<fd-index-list
 				v-if="indexListConf.showList"
 				v-model="indexListConf.showList"
@@ -33,6 +33,7 @@ import Vue from 'vue'
 import { Cell, Button } from 'mint-ui'
 import { IndexList } from 'fd-h5-components'
 //import { IndexList } from '~/index' //--本地引入方式调试
+//import { IndexList } from '&/index.umd.min.js' //--本地引入方式调试
 Vue.use(IndexList)
 import IndexListData from '../../util/test/indexList.json'
 import AppHeader from '../appHeader'
@@ -43,14 +44,14 @@ export default {
 		return {
 			//初始化indexlist
 			indexListConf: {
-				showList: false, // 控制显隐
+				showList: true, // 控制组件显隐
 				selected: {
-					// 默认选中
-					name: '中国', //显示名
-					firstName: 'Z', //分组别名
-					code: '+86', //label标签或编码
-					desc: '', //描述
-					isHot: 0 //是否热门
+					//显示选中数据，不传则不显示
+					name: '中国',
+					firstName: 'Z',
+					code: '+86',
+					desc: '',
+					isHot: '1'
 				},
 				indexData: IndexListData
 			}
@@ -73,7 +74,7 @@ export default {
 			this.indexListConf.selected = val
 
 			//关掉
-			this.indexListConf.showList = false
+			//this.indexListConf.showList = false
 		}
 	}
 }

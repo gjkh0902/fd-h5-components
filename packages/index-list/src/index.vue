@@ -1,14 +1,17 @@
 <template>
 	<transition name="fade" v-if="isShow">
 		<div class="fd-index-list">
-			<div class="index-header" @click="selectAreaCode(selected)">
-				<div class="index-header-title">{{ selected.name }}{{ selected.code }}</div>
-				<i class="iconfont icon-xuanzhong"></i>
+			<div class="index-header" @click="selectAreaCode(selected)" v-if="selected">
+				<div class="index-header-title">
+					<span v-if="selected.name">{{ selected.name }} {{ selected.code || selected.label }}</span>
+					<span v-else>暂未选中数据</span>
+					<i class="iconfont icon-success" v-if="selected.name"></i>
+				</div>
 			</div>
 			<ul
 				class="index-list"
 				ref="Content"
-				:style="{ height: currentHeight + 'px', 'margin-right': navWidth + 'px' }"
+				:style="{ height: currentHeight + 'px', 'margin-right': navWidth + 'px', 'padding-top': selected ? '48px' : '0px' }"
 			>
 				<index-section v-for="(item, index) in setCodeArr" :index="item.type" :key="index">
 					<index-cell
@@ -21,13 +24,9 @@
 					></index-cell>
 				</index-section>
 			</ul>
-			<div class="index-nav" @touchstart="handleTouchStart" ref="Nav">
+			<div class="index-nav" @touchstart="handleTouchStart" ref="Nav" :style="{ top: selected ? '48px' : '0px' }">
 				<ul class="index-nav-list">
-					<li
-						class="index-nav-item"
-						v-for="(section, sIndex) in sections"
-						:key="sIndex"
-					>{{ section.index }}</li>
+					<li class="index-nav-item" v-for="(section, sIndex) in sections" :key="sIndex">{{ section.index }}</li>
 				</ul>
 			</div>
 			<div class="index-indicator" v-if="showIndicator" v-show="moving">{{ currentIndicator }}</div>
@@ -56,7 +55,7 @@ export default {
 		selected: {
 			// 默认选中值
 			type: Object,
-			default: []
+			default: ''
 		},
 		onSelected: {
 			// 选中回调
@@ -212,11 +211,12 @@ export default {
 			font-size: 16px;
 		}
 
-		.icon-xuanzhong {
+		.icon-success {
+			font-size: 18px;
 			position: absolute;
 			top: 0;
-			right: 40px;
-			color: #fd5e02;
+			right: 10px;
+			//color: #137cff;
 		}
 	}
 
@@ -224,13 +224,13 @@ export default {
 		margin: 0;
 		padding: 0;
 		overflow: auto;
-		padding-top: 48px;
+		//padding-top: 48px;
 		// margin-top: -1px;
 		// min-height: calc(100% + 1px);
 	}
 	.index-nav {
 		position: absolute;
-		top: 48px;
+		//top: 48px;
 		bottom: 0;
 		right: 0;
 		margin: 0;
@@ -267,7 +267,7 @@ export default {
 	.index-nav-item {
 		padding: 2px 6px;
 		font-size: 13px;
-		color: #137cff;
+		//color: #137cff;
 		-webkit-user-select: none;
 		-moz-user-select: none;
 		-ms-user-select: none;
