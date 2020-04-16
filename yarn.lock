@@ -3583,6 +3583,22 @@ fd-h5-components@^1.3.4:
     vue-router "^3.0.3"
     vuex "^3.1.2"
 
+fd-h5-components@^1.3.5:
+  version "1.3.5"
+  resolved "https://registry.yarnpkg.com/fd-h5-components/-/fd-h5-components-1.3.5.tgz#d30eeb5042b277bd3bcd16838e5cc1a874e5f514"
+  integrity sha512-qLZxC80aJH3qt8/k1mpUsVyYkvUCPlOqE7w4E+Z3v+dDzGSkP4eViwSY24Ggc9Znh5axUiGeuyN33G1sbDRB7w==
+  dependencies:
+    axios "^0.18.0"
+    core-js "^2.6.5"
+    fd-h5-components "^1.3.4"
+    file-loader "^3.0.1"
+    mint-ui "~2.2.13"
+    mk-libs "^1.1.7"
+    vue "^2.6.10"
+    vue-loader "^15.7.0"
+    vue-router "^3.0.3"
+    vuex "^3.1.2"
+
 figgy-pudding@^3.5.1:
   version "3.5.1"
   resolved "https://registry.yarnpkg.com/figgy-pudding/-/figgy-pudding-3.5.1.tgz#862470112901c727a0e495a80744bd5baa1d6790"

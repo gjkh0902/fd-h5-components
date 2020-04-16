@@ -55,7 +55,7 @@ export default {
 		selected: {
 			// 默认选中值
 			type: Object,
-			default: ''
+			default: {}
 		},
 		onSelected: {
 			// 选中回调
@@ -94,6 +94,7 @@ export default {
 		this.isShow = this.value
 		this.setCodeArr = this.indexData
 		this.isShowIndicator = this.showIndicator
+		this.selected = JSON.stringify(this.selected) == '{}' ? '' : this.selected
 	},
 	mounted() {
 		if (!this.currentHeight) {

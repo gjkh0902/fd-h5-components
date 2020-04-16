@@ -10,12 +10,7 @@
 		<div class="item-content">
 			<!-- 读取组件列表开始-->
 			<ul>
-				<li
-					v-for="(item, index) in routerConfig"
-					:key="index"
-					class="item-router"
-					@click="linkUrl(item.path)"
-				>
+				<li v-for="(item, index) in routerConfig" :key="index" class="item-router" @click="linkUrl(item.path)">
 					<p v-if="(index > 1) & !item.isPro">
 						<i class="iconfont" :class="item.meta.icon"></i>
 						<i class="title">{{ item.meta.title }}</i>
@@ -64,7 +59,10 @@ export default {
 	data() {
 		return {
 			routerConfig: RouterConfig.options.routes || [],
-			title: this.$route.meta.title
+			title: this.$route.meta.title,
+			list: [],
+			artical: '',
+			author: ''
 		}
 	},
 	created() {},
@@ -73,8 +71,6 @@ export default {
 			this.$router.push(url)
 		}
 	},
-	mounted() {
-		console.log(this.routerConfig)
-	}
+	mounted() {}
 }
 </script>
