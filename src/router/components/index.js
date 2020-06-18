@@ -1,18 +1,31 @@
 // 组件演示路由
-const TabNav = r => require.ensure([], () => r(require('@/components/tab-nav/demo.vue')), 'tabsNav')
-const ProcessCircle = r => require.ensure([], () => r(require('@/components/process-circle/demo.vue')), 'ProcessCircle')
-const IndexList = r => require.ensure([], () => r(require('@/components/index-list/demo.vue')), 'CountryAreaCode')
-const Swiper = r => require.ensure([], () => r(require('@/components/swiper/demo.vue')), 'Swiper')
-const Overlay = r => require.ensure([], () => r(require('@/components/overlay/demo.vue')), 'Overlay')
-const Dialog = r => require.ensure([], () => r(require('@/components/dialog/demo.vue')), 'Dialog')
-const Audio = r => require.ensure([], () => r(require('@/components/audio/demo.vue')), 'Audio')
-const Grade = r => require.ensure([], () => r(require('@/components/grade/demo.vue')), 'Grade')
+const TabNav = () =>
+    import ('@/components/tab-nav/demo.vue')
+const ProcessCircle = () =>
+    import ('@/components/process-circle/demo.vue')
+const IndexList = () =>
+    import ('@/components/index-list/demo.vue')
+const Swiper = () =>
+    import ('@/components/swiper/demo.vue')
+const Overlay = () =>
+    import ('@/components/overlay/demo.vue')
+const Dialog = () =>
+    import ('@/components/dialog/demo.vue')
+const Audio = () =>
+    import ('@/components/audio/demo.vue')
+const Grade = () =>
+    import ('@/components/grade/demo.vue')
 
-const QNUploader = r => require.ensure([], () => r(require('@/components/qiniuUpload/index.vue')), 'QNUploader')
-const MKAudio = r => require.ensure([], () => r(require('@/components/mkAudio/index.vue')), 'MKAudio')
-const Toast = r => require.ensure([], () => r(require('@/components/toast/demo.vue')), 'Toast')
-const MessageBox = r => require.ensure([], () => r(require('@/components/message-box/demo.vue')), 'MessageBox')
-const NumberScroll = r => require.ensure([], () => r(require('@/components/number-scroll/demo.vue')), 'NumberScroll')
+const QNUploader = () =>
+    import ('@/components/qiniuUpload/index.vue')
+const MKAudio = () =>
+    import ('@/components/mkAudio/index.vue')
+const Toast = () =>
+    import ('@/components/toast/demo.vue')
+const MessageBox = () =>
+    import ('@/components/message-box/demo.vue')
+const NumberScroll = () =>
+    import ('@/components/number-scroll/demo.vue')
 
 const basePath = ''
 
@@ -23,8 +36,8 @@ export default [{
         meta: {
             title: '七牛上传控件',
             icon: 'icon-shangchuan',
-            keepAlive: true
-        }
+            keepAlive: false,
+        },
     },
     {
         path: `/toast`,
@@ -33,8 +46,8 @@ export default [{
         meta: {
             title: 'Toast 提示',
             icon: 'icon-tishi',
-            keepAlive: true
-        }
+            keepAlive: false,
+        },
     },
     {
         path: '/message-box',
@@ -43,8 +56,8 @@ export default [{
         meta: {
             title: 'MessageBox 对话框',
             icon: 'icon-alert',
-            keepAlive: false
-        }
+            keepAlive: false,
+        },
     },
     {
         path: `/tab-nav`,
@@ -53,8 +66,8 @@ export default [{
         meta: {
             title: 'Tab标签切换',
             icon: 'icon-tab', //iconfont图标
-            keepAlive: true
-        }
+            keepAlive: false,
+        },
     },
     {
         path: `/index-list`,
@@ -63,8 +76,8 @@ export default [{
         meta: {
             title: '楼层导航选择',
             icon: 'icon-diququhao',
-            keepAlive: true
-        }
+            keepAlive: false,
+        },
     },
     {
         path: `/process-circle`,
@@ -73,9 +86,9 @@ export default [{
         meta: {
             title: '进度圈',
             icon: 'icon-jinduquan',
-            keepAlive: true
+            keepAlive: false,
         },
-        isPro: process.env.VUE_APP_ISPRO
+        isPro: process.env.VUE_APP_ISPRO,
     },
     {
         path: `/swiper`,
@@ -84,9 +97,9 @@ export default [{
         meta: {
             title: 'Swiper 轮播组件',
             icon: 'icon-lunbo',
-            keepAlive: true
+            keepAlive: false,
         },
-        isPro: process.env.VUE_APP_ISPRO
+        isPro: process.env.VUE_APP_ISPRO,
     },
     {
         path: `/overlay`,
@@ -95,9 +108,9 @@ export default [{
         meta: {
             title: 'Overlay 浮层',
             icon: 'icon-fuceng',
-            keepAlive: true
+            keepAlive: false,
         },
-        isPro: process.env.VUE_APP_ISPRO
+        isPro: process.env.VUE_APP_ISPRO,
     },
     {
         path: `/dialog`,
@@ -106,9 +119,9 @@ export default [{
         meta: {
             title: 'Dialog 弹出框',
             icon: 'icon-danchukuang',
-            keepAlive: true
+            keepAlive: false,
         },
-        isPro: process.env.VUE_APP_ISPRO
+        isPro: process.env.VUE_APP_ISPRO,
     },
     {
         path: `/audio`,
@@ -117,9 +130,9 @@ export default [{
         meta: {
             title: '音频播放',
             icon: 'icon-yinpin',
-            keepAlive: true
+            keepAlive: false,
         },
-        isPro: process.env.VUE_APP_ISPRO
+        isPro: process.env.VUE_APP_ISPRO,
     },
     {
         path: `/mkAudio`,
@@ -128,9 +141,9 @@ export default [{
         meta: {
             title: '音频播放器',
             icon: 'icon-bofangqi',
-            keepAlive: false
+            keepAlive: false,
         },
-        isPro: process.env.VUE_APP_ISPRO
+        isPro: process.env.VUE_APP_ISPRO,
     },
     {
         path: `/grade`,
@@ -139,8 +152,8 @@ export default [{
         meta: {
             title: '星级评分',
             icon: 'icon-xingjipingfen',
-            keepAlive: false
-        }
+            keepAlive: false,
+        },
     },
     {
         path: '/number-scroll',
@@ -149,7 +162,7 @@ export default [{
         meta: {
             title: '数字卷轴',
             icon: 'icon-daohang',
-            keepAlive: false
-        }
-    }
+            keepAlive: false,
+        },
+    },
 ]
